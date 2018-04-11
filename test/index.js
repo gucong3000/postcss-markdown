@@ -1,7 +1,6 @@
 "use strict";
 
 const expect = require("chai").expect;
-const postcss = require("postcss");
 const syntax = require("../");
 
 describe("markdown tests", () => {
@@ -41,7 +40,9 @@ describe("markdown tests", () => {
 			"```",
 			"And the end.",
 		].join("\n");
-		const root = syntax.parse(md, {
+		const root = syntax({
+			html: true,
+		}).parse(md, {
 			from: "markdown.md",
 		});
 		expect(root.nodes).to.have.lengthOf(5);
@@ -57,42 +58,29 @@ describe("markdown tests", () => {
 			"```",
 			"",
 		].join("\n");
-		return postcss([
-			root => {
-				const css = root.nodes[0].source;
-				expect(css.input.css).equal("\n");
-				expect(css.start.line).equal(4);
-				expect(css.start.column).equal(1);
-			},
-		]).process(source, {
-			syntax: syntax(),
+		const root = syntax.parse(source, {
 			from: "empty_code_block.md",
 		});
+		expect(root.nodes).to.have.lengthOf(1);
+		const css = root.first.source;
+		expect(css.input.css).equal("\n");
+		expect(css.start.line).equal(4);
+		expect(css.start.column).equal(1);
 	});
 
 	it("empty file", () => {
-		return postcss([
-			root => {
-				expect(root.nodes).have.lengthOf(0);
-			},
-		]).process("", {
-			syntax: syntax,
+		const root = syntax.parse("", {
 			from: "empty_file.md",
-		}).then(result => {
-			expect(result.content).to.equal("");
 		});
+		expect(root.nodes).have.lengthOf(0);
+		expect(root.toString()).to.equal("");
 	});
 
 	it("without code blocks", () => {
-		return postcss([
-			root => {
-				expect(root.nodes).to.have.lengthOf(0);
-			},
-		]).process("# Hi\n", {
-			syntax,
+		const root = syntax.parse("# Hi\n", {
 			from: "without_code_blocks.md",
-		}).then(result => {
-			expect(result.content).to.equal("# Hi\n");
 		});
+		expect(root.nodes).to.have.lengthOf(0);
+		expect(root.toString()).to.equal("# Hi\n");
 	});
 });

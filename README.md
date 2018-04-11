@@ -17,7 +17,7 @@ PostCSS Markdown Syntax
 First thing's first, install the module:
 
 ```
-npm install postcss-html postcss-markdown --save-dev
+npm install postcss-markdown --save-dev
 ```
 
 If you want support SCSS/SASS/LESS/SugarSS syntax, you need to install the corresponding module.
@@ -30,7 +30,16 @@ If you want support SCSS/SASS/LESS/SugarSS syntax, you need to install the corre
 ## Use Cases
 
 ```js
-var syntax = require('postcss-markdown');
+var syntax = require('postcss-markdown')({
+	// Enable support for HTML (default: false) See: https://github.com/gucong3000/postcss-html
+	html: true,
+	// syntax for parse scss (non-required options)
+	scss: require('postcss-scss'),
+	// syntax for parse less (non-required options)
+	less: require('postcss-less'),
+	// syntax for parse css blocks (non-required options)
+	css: require('postcss-safe-parser'),
+});
 var autoprefixer = require('autoprefixer');
 postcss([ autoprefixer ]).process(source, { syntax: syntax }).then(function (result) {
 	// An alias for the result.css property. Use it with syntaxes that generate non-CSS output.
@@ -67,19 +76,17 @@ output:
 ```
 </code></pre>
 
+If you want support SCSS/SASS/LESS/SugarSS syntax, you need to install these module:
+
+- SCSS: [PostCSS-SCSS](https://github.com/postcss/postcss-scss)
+- SASS: [PostCSS-SASS](https://github.com/aleshaoleg/postcss-sass)
+- LESS: [PostCSS-LESS](https://github.com/shellscape/postcss-less)
+- SugarSS: [SugarSS](https://github.com/postcss/sugarss)
+
+## Advanced Use Cases
+
+See: [postcss-syntax](https://github.com/gucong3000/postcss-syntax)
+
 ### Style Transformations
 
-The main use case of this plugin is to apply PostCSS transformations to code blocks in markdown file.
-
-### Custom unknown syntax
-
-```js
-var syntax = require('postcss-markdown');
-postcss(plugins).process(md, {
-	syntax: syntax({
-		stylus: require('postcss-stylus')
-	})
-}).then(function (result) {
-	result.content
-});
-```
+The main use case of this plugin is apply PostCSS transformations to CSS (and CSS-like) code blocks in markdown file.
