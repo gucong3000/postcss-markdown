@@ -1,6 +1,6 @@
 {
   "name": "postcss-markdown",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "description": "PostCSS syntax for parsing Markdown",
   "main": "lib/index.js",
   "scripts": {
@@ -59,13 +59,14 @@
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "mocha": "^5.1.0",
-    "nyc": "^11.6.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "mocha": "^5.1.1",
+    "nyc": "^11.7.1",
     "postcss": "^6.0.21",
     "postcss-html": "^0.21.0",
     "postcss-less": "^1.1.5",
     "postcss-scss": "^1.0.5",
+    "postcss-syntax": "github:gucong3000/postcss-syntax#HEAD",
     "sugarss": "^1.0.1"
   }
 }
