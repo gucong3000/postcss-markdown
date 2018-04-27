@@ -17,7 +17,7 @@ PostCSS Markdown Syntax
 First thing's first, install the module:
 
 ```
-npm install postcss-markdown --save-dev
+npm install postcss-syntax postcss-markdown --save-dev
 ```
 
 If you want support SCSS/SASS/LESS/SugarSS syntax, you need to install the corresponding module.
