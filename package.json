@@ -44,16 +44,16 @@
   },
   "homepage": "https://github.com/gucong3000/postcss-markdown#readme",
   "dependencies": {
-    "postcss-syntax": "*",
     "remark": "^9.0.0",
     "unist-util-find-all-after": "^1.0.1"
   },
   "peerDependencies": {
-    "postcss": ">=5.0.0"
+    "postcss": ">=5.0.0",
+    "postcss-syntax": "*"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "codecov": "^3.0.0",
+    "codecov": "^3.0.1",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.11.0",
