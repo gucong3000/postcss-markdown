@@ -63,6 +63,7 @@ describe("markdown tests", () => {
 		});
 		expect(root.nodes).to.have.lengthOf(1);
 		const css = root.first.source;
+		expect(css.lang).equal("css");
 		expect(css.input.css).equal("\n");
 		expect(css.start.line).equal(4);
 		expect(css.start.column).equal(1);

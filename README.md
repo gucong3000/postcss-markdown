@@ -2,8 +2,8 @@ PostCSS Markdown Syntax
 ====
 
 [![NPM version](https://img.shields.io/npm/v/postcss-markdown.svg?style=flat-square)](https://www.npmjs.com/package/postcss-markdown)
-[![Travis](https://img.shields.io/travis/gucong3000/postcss-markdown.svg)](https://travis-ci.org/gucong3000/postcss-markdown)
-[![Codecov](https://img.shields.io/codecov/c/github/gucong3000/postcss-markdown.svg)](https://codecov.io/gh/gucong3000/postcss-markdown)
+[![Travis](https://img.shields.io/travis/gucong3000/postcss-syntaxes.svg)](https://travis-ci.org/gucong3000/postcss-syntaxes)
+[![Codecov](https://img.shields.io/codecov/c/github/gucong3000/postcss-syntaxes.svg)](https://codecov.io/gh/gucong3000/postcss-syntaxes)
 [![David](https://img.shields.io/david/gucong3000/postcss-markdown.svg)](https://david-dm.org/gucong3000/postcss-markdown)
 
 <img align="right" width="95" height="95"
@@ -22,10 +22,10 @@ npm install postcss-syntax postcss-markdown --save-dev
 
 If you want support SCSS/SASS/LESS/SugarSS syntax, you need to install the corresponding module.
 
-- SCSS: [PostCSS-SCSS](https://github.com/postcss/postcss-scss)
-- SASS: [PostCSS-SASS](https://github.com/aleshaoleg/postcss-sass)
-- LESS: [PostCSS-LESS](https://github.com/shellscape/postcss-less)
-- SugarSS: [SugarSS](https://github.com/postcss/sugarss)
+- SCSS: [postcss-scss](https://github.com/postcss/postcss-scss)
+- SASS: [postcss-sass](https://github.com/aleshaoleg/postcss-sass)
+- LESS: [postcss-less](https://github.com/shellscape/postcss-less)
+- SugarSS: [sugarss](https://github.com/postcss/sugarss)
 
 ## Use Cases
 
@@ -51,7 +51,7 @@ input:
 
 ```css
 ::placeholder {
-  color: gray;
+	color: gray;
 }
 ```
 </code></pre>
@@ -62,16 +62,16 @@ output:
 
 ```css
 ::-webkit-input-placeholder {
-  color: gray;
+	color: gray;
 }
 :-ms-input-placeholder {
-  color: gray;
+	color: gray;
 }
 ::-ms-input-placeholder {
-  color: gray;
+	color: gray;
 }
 ::placeholder {
-  color: gray;
+	color: gray;
 }
 ```
 </code></pre>
