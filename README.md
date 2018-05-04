@@ -2,8 +2,8 @@ PostCSS Markdown Syntax
 ====
 
 [![NPM version](https://img.shields.io/npm/v/postcss-markdown.svg?style=flat-square)](https://www.npmjs.com/package/postcss-markdown)
-[![Travis](https://img.shields.io/travis/gucong3000/postcss-syntaxes.svg)](https://travis-ci.org/gucong3000/postcss-syntaxes)
-[![Codecov](https://img.shields.io/codecov/c/github/gucong3000/postcss-syntaxes.svg)](https://codecov.io/gh/gucong3000/postcss-syntaxes)
+[![Travis](https://img.shields.io/travis/gucong3000/postcss-markdown.svg)](https://travis-ci.org/gucong3000/postcss-syntaxes)
+[![Codecov](https://img.shields.io/codecov/c/github/gucong3000/postcss-markdown.svg)](https://codecov.io/gh/gucong3000/postcss-syntaxes)
 [![David](https://img.shields.io/david/gucong3000/postcss-markdown.svg)](https://david-dm.org/gucong3000/postcss-markdown)
 
 <img align="right" width="95" height="95"
