@@ -4,49 +4,61 @@ const expect = require("chai").expect;
 const syntax = require("../");
 
 describe("markdown tests", () => {
+	const md = [
+		"---",
+		"title: Something Special",
+		"---",
+		"Here is some text.",
+		"```css",
+		".foo {}",
+		"```",
+		"And some other text.",
+		"```css",
+		"    .foo { color: pink; }",
+		"      .bar {}",
+		"```",
+		"<style>",
+		"a {",
+		"\tdisplay: flex;",
+		"}",
+		"</style>",
+		"```scss",
+		"// Parser-breaking comment",
+		"$foo: bar;",
+		".foo {}",
+		"```",
+		"```js",
+		"<style>",
+		"js {}",
+		"</style>",
+		"```",
+		"```html",
+		"<style>",
+		"html {}",
+		"</style>",
+		"```",
+		"And the end.",
+	].join("\n");
+
 	it("CSS", () => {
-		const md = [
-			"---",
-			"title: Something Special",
-			"---",
-			"Here is some text.",
-			"```css",
-			".foo {}",
-			"```",
-			"And some other text.",
-			"```css",
-			"    .foo { color: pink; }",
-			"      .bar {}",
-			"```",
-			"<style>",
-			"a {",
-			"\tdisplay: flex;",
-			"}",
-			"</style>",
-			"```scss",
-			"// Parser-breaking comment",
-			"$foo: bar;",
-			".foo {}",
-			"```",
-			"```js",
-			"<style>",
-			"js {}",
-			"</style>",
-			"```",
-			"```html",
-			"<style>",
-			"html {}",
-			"</style>",
-			"```",
-			"And the end.",
-		].join("\n");
 		const document = syntax({
-			html: true,
+			htmlInMd: true,
 		}).parse(md, {
 			from: "markdown.md",
 		});
 		expect(document.source).to.haveOwnProperty("lang", "markdown");
 		expect(document.nodes).to.have.lengthOf(5);
+		expect(document.toString()).to.equal(md);
+	});
+
+	it("CSS", () => {
+		const document = syntax({
+			htmlInMd: false,
+		}).parse(md, {
+			from: "markdown.md",
+		});
+		expect(document.source).to.haveOwnProperty("lang", "markdown");
+		expect(document.nodes).to.have.lengthOf(3);
 		expect(document.toString()).to.equal(md);
 	});
 
