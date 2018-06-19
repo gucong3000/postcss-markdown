@@ -40,14 +40,14 @@ describe("markdown tests", () => {
 			"```",
 			"And the end.",
 		].join("\n");
-		const root = syntax({
+		const document = syntax({
 			html: true,
 		}).parse(md, {
 			from: "markdown.md",
 		});
-		expect(root.source).to.haveOwnProperty("lang", "markdown");
-		expect(root.nodes).to.have.lengthOf(5);
-		expect(root.toString()).to.equal(md);
+		expect(document.source).to.haveOwnProperty("lang", "markdown");
+		expect(document.nodes).to.have.lengthOf(5);
+		expect(document.toString()).to.equal(md);
 	});
 
 	it("empty code block", () => {
@@ -59,12 +59,12 @@ describe("markdown tests", () => {
 			"```",
 			"",
 		].join("\n");
-		const root = syntax.parse(source, {
+		const document = syntax.parse(source, {
 			from: "empty_code_block.md",
 		});
-		expect(root.source).to.haveOwnProperty("lang", "markdown");
-		expect(root.nodes).to.have.lengthOf(1);
-		const css = root.first.source;
+		expect(document.source).to.haveOwnProperty("lang", "markdown");
+		expect(document.nodes).to.have.lengthOf(1);
+		const css = document.first.source;
 		expect(css.lang).equal("css");
 		expect(css.input.css).equal("\n");
 		expect(css.start.line).equal(4);
@@ -72,20 +72,20 @@ describe("markdown tests", () => {
 	});
 
 	it("empty file", () => {
-		const root = syntax.parse("", {
+		const document = syntax.parse("", {
 			from: "empty_file.md",
 		});
-		expect(root.source).to.haveOwnProperty("lang", "markdown");
-		expect(root.nodes).have.lengthOf(0);
-		expect(root.toString()).to.equal("");
+		expect(document.source).to.haveOwnProperty("lang", "markdown");
+		expect(document.nodes).have.lengthOf(0);
+		expect(document.toString()).to.equal("");
 	});
 
 	it("without code blocks", () => {
-		const root = syntax.parse("# Hi\n", {
+		const document = syntax.parse("# Hi\n", {
 			from: "without_code_blocks.md",
 		});
-		expect(root.source).to.haveOwnProperty("lang", "markdown");
-		expect(root.nodes).to.have.lengthOf(0);
-		expect(root.toString()).to.equal("# Hi\n");
+		expect(document.source).to.haveOwnProperty("lang", "markdown");
+		expect(document.nodes).to.have.lengthOf(0);
+		expect(document.toString()).to.equal("# Hi\n");
 	});
 });
