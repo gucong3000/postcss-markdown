@@ -4,8 +4,11 @@ const remark = require("remark");
 const findAllAfter = require("unist-util-find-all-after");
 
 function mdParser (source, opts, result) {
-	if (!result && opts.syntax.config.html) {
-		result = require("postcss-html/extract")(source, opts, []);
+	if (!result) {
+		const htmlInMd = opts.syntax.config.htmlInMd;
+		if (htmlInMd == null || htmlInMd) {
+			result = require("postcss-html/extract")(source, opts, []);
+		}
 	}
 	const ast = remark().parse(source);
 	const blocks = findAllAfter(ast, 0, (node) => (

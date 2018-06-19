@@ -45,6 +45,7 @@ describe("markdown tests", () => {
 		}).parse(md, {
 			from: "markdown.md",
 		});
+		expect(root.source).to.haveOwnProperty("lang", "markdown");
 		expect(root.nodes).to.have.lengthOf(5);
 		expect(root.toString()).to.equal(md);
 	});
@@ -61,6 +62,7 @@ describe("markdown tests", () => {
 		const root = syntax.parse(source, {
 			from: "empty_code_block.md",
 		});
+		expect(root.source).to.haveOwnProperty("lang", "markdown");
 		expect(root.nodes).to.have.lengthOf(1);
 		const css = root.first.source;
 		expect(css.lang).equal("css");
@@ -73,6 +75,7 @@ describe("markdown tests", () => {
 		const root = syntax.parse("", {
 			from: "empty_file.md",
 		});
+		expect(root.source).to.haveOwnProperty("lang", "markdown");
 		expect(root.nodes).have.lengthOf(0);
 		expect(root.toString()).to.equal("");
 	});
@@ -81,6 +84,7 @@ describe("markdown tests", () => {
 		const root = syntax.parse("# Hi\n", {
 			from: "without_code_blocks.md",
 		});
+		expect(root.source).to.haveOwnProperty("lang", "markdown");
 		expect(root.nodes).to.have.lengthOf(0);
 		expect(root.toString()).to.equal("# Hi\n");
 	});
