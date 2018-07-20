@@ -88,6 +88,6 @@ If you want support SCSS/SASS/LESS/SugarSS syntax, you need to install these mod
 
 See: [postcss-syntax](https://github.com/gucong3000/postcss-syntax)
 
-### Style Transformations
+## Style Transformations
 
 The main use case of this plugin is apply PostCSS transformations to CSS (and CSS-like) code blocks in markdown file.
