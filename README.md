@@ -31,7 +31,7 @@ If you want support SCSS/SASS/LESS/SugarSS syntax, you need to install the corre
 ## Use Cases
 
 ```js
-var syntax = require('postcss-markdown')({
+var syntax = require('postcss-syntax')({
 	// Enable support for HTML (default: true) See: https://github.com/gucong3000/postcss-html
 	htmlInMd: true,
 	// syntax for parse scss (non-required options)
