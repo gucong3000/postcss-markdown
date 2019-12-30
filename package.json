@@ -39,7 +39,7 @@
     "debug": "npm run mocha -- --inspect-brk"
   },
   "dependencies": {
-    "remark": "^10.0.1",
+    "remark": "^11.0.2",
     "unist-util-find-all-after": "^1.0.2"
   },
   "peerDependencies": {
