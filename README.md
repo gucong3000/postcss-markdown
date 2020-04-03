@@ -1,11 +1,6 @@
-PostCSS Markdown Syntax
-====
+# PostCSS Markdown Syntax
 
-[![NPM version](https://img.shields.io/npm/v/postcss-markdown.svg?style=flat-square)](https://www.npmjs.com/package/postcss-markdown)
-[![Travis](https://img.shields.io/travis/gucong3000/postcss-markdown.svg)](https://travis-ci.org/gucong3000/postcss-markdown)
-[![Travis](https://img.shields.io/travis/gucong3000/postcss-syntaxes.svg?label=integration)](https://travis-ci.org/gucong3000/postcss-syntaxes)
-[![Codecov](https://img.shields.io/codecov/c/github/gucong3000/postcss-markdown.svg)](https://codecov.io/gh/gucong3000/postcss-markdown)
-[![David](https://img.shields.io/david/gucong3000/postcss-markdown.svg)](https://david-dm.org/gucong3000/postcss-markdown)
+[![NPM version](https://img.shields.io/npm/v/@stylelint/postcss-markdown.svg)](https://www.npmjs.org/package/@stylelint/postcss-markdown) [![Build Status](https://github.com/stylelint/postcss-markdown/workflows/CI/badge.svg)](https://github.com/stylelint/postcss-markdown/actions)
 
 <img align="right" width="95" height="95"
 	title="Philosopher’s stone, logo of PostCSS"
@@ -18,7 +13,7 @@ PostCSS Markdown Syntax
 First thing's first, install the module:
 
 ```
-npm install postcss-syntax postcss-markdown --save-dev
+npm install postcss-syntax @stylelint/postcss-markdown --save-dev
 ```
 
 If you want support SCSS/SASS/LESS/SugarSS syntax, you need to install the corresponding module.
@@ -31,23 +26,27 @@ If you want support SCSS/SASS/LESS/SugarSS syntax, you need to install the corre
 ## Use Cases
 
 ```js
-var syntax = require('postcss-syntax')({
-	// Enable support for HTML (default: true) See: https://github.com/gucong3000/postcss-html
-	htmlInMd: true,
-	// syntax for parse scss (non-required options)
-	scss: require('postcss-scss'),
-	// syntax for parse less (non-required options)
-	less: require('postcss-less'),
-	// syntax for parse css blocks (non-required options)
-	css: require('postcss-safe-parser'),
+var syntax = require("postcss-syntax")({
+  // Enable support for HTML (default: true) See: https://github.com/gucong3000/postcss-html
+  htmlInMd: true,
+  // syntax for parse scss (non-required options)
+  scss: require("postcss-scss"),
+  // syntax for parse less (non-required options)
+  less: require("postcss-less"),
+  // syntax for parse css blocks (non-required options)
+  css: require("postcss-safe-parser")
 });
-var autoprefixer = require('autoprefixer');
-postcss([ autoprefixer ]).process(source, { syntax: syntax }).then(function (result) {
-	// An alias for the result.css property. Use it with syntaxes that generate non-CSS output.
-	result.content
-});
+var autoprefixer = require("autoprefixer");
+postcss([autoprefixer])
+  .process(source, { syntax: syntax })
+  .then(function(result) {
+    // An alias for the result.css property. Use it with syntaxes that generate non-CSS output.
+    result.content;
+  });
 ```
+
 input:
+
 <pre><code># title
 
 ```css
@@ -57,8 +56,8 @@ input:
 ```
 </code></pre>
 
-
 output:
+
 <pre><code># title
 
 ```css
