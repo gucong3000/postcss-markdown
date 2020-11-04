@@ -39,7 +39,6 @@
     "debug": "npm run mocha -- --inspect-brk"
   },
   "dependencies": {
-    "remark": "^11.0.2",
     "unist-util-find-all-after": "^1.0.2"
   },
   "peerDependencies": {
@@ -56,6 +55,7 @@
     "postcss-less": "^3.1.0",
     "postcss-scss": "^2.0.0",
     "postcss-syntax": ">=0.36.0",
+    "remark": "^13.0.0",
     "sugarss": "^2.0.0"
   }
 }
